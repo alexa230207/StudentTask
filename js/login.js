@@ -17,7 +17,7 @@ function login() {
         transition.classList.add("active");
 
         setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "home.html";
         }, 800);
 
     } else {
