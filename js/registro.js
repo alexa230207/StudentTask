@@ -13,5 +13,5 @@ JSON.stringify(usuario)
 
 alert("Cuenta creada");
 
-window.location.href="login.html";
+window.location.href="index.html";
 }
