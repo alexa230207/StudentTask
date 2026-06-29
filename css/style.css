@@ -1,0 +1,300 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+
+    background:linear-gradient(
+        -45deg,
+        #FF0000,
+        #5A0000,
+        #1F0000,
+        #000000
+    );
+
+    background-size:400% 400%;
+    animation:gradient 10s ease infinite;
+    overflow:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.45);
+}
+
+@keyframes gradient{
+    0%{
+        background-position:0% 50%;
+    }
+    50%{
+        background-position:100% 50%;
+    }
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+.glass-card{
+    width:380px;
+    padding:35px;
+    border-radius:25px;
+    background:rgba(255,255,255,0);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.2);
+    text-align:center;
+    color:white;
+    transition:all 0.15s ease-out;
+    transform-style:preserve-3d;
+    cursor:pointer;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.8);
+    animation:float 4s ease-in-out infinite;
+}
+
+.glass-card::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+    );
+    animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+    0%{
+        transform:translateX(-100%) rotate(25deg);
+    }
+    100%{
+        transform:translateX(100%) rotate(25deg);
+    }
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+h1,
+.subtitle,
+input,
+button,
+.link{
+    position:relative;
+    z-index:10;
+    transform:translateZ(30px);
+}
+
+h1{
+    margin-bottom:10px;
+}
+
+.subtitle{
+    margin-bottom:20px;
+    opacity:0.9;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    background:transparent;
+    color:white;
+    transition:0.3s;
+}
+
+input::placeholder{
+    color:rgba(255,255,255,0.7);
+}
+
+input:focus{
+    transform:scale(1.04);
+    box-shadow:0 0 15px rgba(255,255,255,0.5);
+}
+
+button{
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    background:#8A0000;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-4px) scale(1.05);
+    box-shadow:0 10px 20px rgba(255,51,51,0.5);
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+.link{
+    margin-top:20px;
+}
+
+.link a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.link a:hover{
+    color:#FF7A7A;
+    text-shadow:0 0 10px #2B0000;
+}
+
+/* OLAS DE FONDO */
+
+.background-waves{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.wave-bg{
+    position:absolute;
+    left:-300px;
+    width:2402px;
+    height:427px;
+    background:url('https://static.platzi.com/media/files/waves_c8551f5d-ecf6-4a81-ae1d-f3a0ad55ba10.png')
+    center bottom no-repeat;
+    opacity:.15;
+}
+
+.wave1{
+    bottom:-100px;
+    animation:wave 2s ease-in-out infinite alternate;
+}
+
+.wave2{
+    bottom:-130px;
+    background-position:0 -427px;
+    animation:wave 5s ease-in-out infinite alternate;
+}
+
+.wave3{
+    bottom:-160px;
+    background-position:0 -854px;
+    animation:wave 10s ease-in-out infinite alternate;
+}
+
+/* OLAS DENTRO DE LA TARJETA */
+
+.card-waves{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    border-radius:25px;
+    z-index:1;
+    opacity:.9;
+}
+
+.wave-card{
+    position:absolute;
+    left:-250px;
+    width:2402px;
+    height:427px;
+    opacity:.9;
+    background:url('https://static.platzi.com/media/files/waves_c8551f5d-ecf6-4a81-ae1d-f3a0ad55ba10.png')
+    center bottom no-repeat;
+}
+
+.wave-card.a{
+    bottom:-260px;
+    animation:wave 5s ease-in-out infinite alternate;
+}
+
+.wave-card.b{
+    bottom:-280px;
+    background-position:0 -427px;
+    animation:wave 6s ease-in-out infinite alternate;
+}
+
+.wave-card.c{
+    bottom:-300px;
+    background-position:0 -854px;
+    animation:wave 7s ease-in-out infinite alternate;
+}
+
+@keyframes wave{
+    0%{
+        transform:translate(0,0);
+    }
+    50%{
+        transform:translate(-80px,30px);
+    }
+    100%{
+        transform:translate(160px,-60px);
+    }
+}
+
+/* TRANSICIÓN TIPO GLOBOS */
+
+.transition{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.transition::before,
+.transition::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:0;
+    height:0;
+background:linear-gradient(45deg,#ff0000,#5A0000);
+    border-radius:50%;
+    transform:translateY(-50%);
+    transition:all .8s ease-in-out;
+}
+
+.transition::before{
+    left:-100px;
+}
+
+.transition::after{
+    right:-100px;
+}
+
+.transition.active::before,
+.transition.active::after{
+    width:220vh;
+    height:220vh;
+}
